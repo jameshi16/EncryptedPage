@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title>Encrypted Page loader</title>
+    <script src="js/encryptedpage.js" type="application/javascript"></script>
+  </head>
+
+  <body>
+    <form onsubmit="decrypt_page('encrypted.html', 'encryptedpage-content', 'password')" action="javascript:void(0);">
+      Password: <input type="password" id="password"/><br/>
+      <input type="submit" id="submit"/>
+    </form>
+    <div id="encryptedpage-content"></div>
+  </body>
+</html>
