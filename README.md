@@ -16,23 +16,22 @@ If you're not going to read the "How to use" section below, at least read this s
 
 # How to use
 1. Start a web server in the repository directory. I use Python, so I can invoke Python's `SimpleHTTPServer`:
-  ```bash
-  python3 -m http.server
-  ```
+    ```bash
+    python3 -m http.server
+    ```
 2. Navigate to the page served by your web server. In my case, I visit [http://localhost:8000](http://localhost:8000). **NOTE**: http://0.0.0.0:8000 will disable the Crypto API that this project relies on. Either serve the web page via the `https` protocol, or use `localhost` instead of `0.0.0.0`.
 3. Create a file, and populate the file. If you are writing HTML, please only write the content that will go into the `<body>` tag, because that is where your content will be populated in.
-  ```html
-  <p>Hello from the other side</p>
-  ```
+    ```html
+    <p>Hello from the other side</p>
+    ```
 4. Run the Go script. You may need to first get the `crypto` package, as the `encrypter.go` script relies on the `pbkdf2` package. Get it by running `go get -u golang.org/x/crypto/...`.
-  ```bash
-  $ go run encrypter.go
-    Password: [key in your password here]
-    File to Encrypt: [your file to encrypt here]
-    IV: rAnd0mSt1ng12345
-    Encrypted file: encrypted.html
-   ```
-  You can delete your original file if you wish.
+    ```bash
+    $ go run encrypter.go
+      Password: [key in your password here]
+      File to Encrypt: [your file to encrypt here]
+      IV: rAnd0mSt1ng12345
+      Encrypted file: encrypted.html
+     ```
 5. Append a `?iv=<iv here>` at the back of your page URL. In my case, the URL to visit is: [http://localhost:8000/?iv=rAnd0mSt1ng12345](http://localhost:8000/?iv=rAnd0mSt1ng12345)
 6. Type in the password you used while encrypting, then press submit.
 7. The contents you wrote in the eariler HTML file should appear below the `Submit` button.
